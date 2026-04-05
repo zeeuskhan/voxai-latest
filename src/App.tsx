@@ -415,7 +415,7 @@ export default function App() {
     setStatus('Generating Neural Preview...');
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = new GoogleGenAI({   apiKey: import.meta.env.VITE_GEMINI_API_KEY });
       const emotionPrompt = emotion === 'neutral' ? '' : ` with a ${emotion} tone`;
       const langPrompt = selectedLanguage === 'English (US)' ? 'English' : 'Indian Hindi';
       const prompt = `Convert this text to speech in ${langPrompt} language with a natural ${langPrompt} accent${emotionPrompt}: ${text.slice(0, 200)}`; // Preview first 200 chars
