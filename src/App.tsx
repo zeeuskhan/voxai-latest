@@ -356,7 +356,7 @@ export default function App() {
     setStatus('Generating Neural HQ Audio...');
     
     try {
-      const ai = new GoogleGenAI({ AIzaSyAjvwWpme5Av2XfUbxiGZb8G67t-0YLovw });
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       // Enhance prompt with emotion and language context
       const emotionPrompt = emotion === 'neutral' ? '' : ` with a ${emotion} tone`;
       const langPrompt = selectedLanguage === 'English (US)' ? 'English' : 'Indian Hindi';
@@ -413,7 +413,7 @@ export default function App() {
     setStatus('Generating Neural Preview...');
     
     try {
-      const ai = new GoogleGenAI({ AIzaSyAjvwWpme5Av2XfUbxiGZb8G67t-0YLovw });
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       const emotionPrompt = emotion === 'neutral' ? '' : ` with a ${emotion} tone`;
       const langPrompt = selectedLanguage === 'English (US)' ? 'English' : 'Indian Hindi';
       const prompt = `Convert this text to speech in ${langPrompt} language with a natural ${langPrompt} accent${emotionPrompt}: ${text.slice(0, 200)}`; // Preview first 200 chars
